@@ -43,6 +43,11 @@ stringData:
         - logs:
             selector:
               - app=postgres
+      hostCollectors:
+        - tcpConnect:
+            collectorName: kubernetes-api-tcp-conn-status
+            address: 10.244.128.1:443
+            timeout: 10s
       analyzers:
         - clusterVersion:
             outcomes:
@@ -137,3 +142,20 @@ stringData:
                   message: This application has not been tested on Docker Desktop
               - warn:
                   message: This Kubernetes platform is not regularly tested, but there are no known compatibility issues.
+      hostAnalyzers:
+        - tcpConnect:
+            checkName: "Kubernetes API TCP Connection Status"
+            collectorName: kubernetes-api-tcp-conn-status
+            outcomes:
+              - fail:
+                  when: "connection-refused"
+                  message: Connection to the Kubernetes API address was refused
+              - fail:
+                  when: "connection-timeout"
+                  message: Timed out connecting to the Kubernetes API address
+              - fail:
+                  when: "error"
+                  message: Unexpected error connecting to the Kubernetes API address 
+              - pass:
+                  when: "connected"
+                  message: Successfully connected to the Kubernetes API address
