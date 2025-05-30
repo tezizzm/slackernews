@@ -18,8 +18,8 @@ spec:
     version: "1.0.0"
     description: "Anaconda"
     icons: 
-      - src: "https://www.anaconda.com/wp-content/uploads/2022/12/anaconda_secondary_logo.svg"
-        type: "image/svg+xml"
+      - src: "https://www.clipartmax.com/png/small/349-3490136_anaconda-icon-anaconda-python-icon.png"
+        type: "image/png"
     type: anaconda
     links:
       - description: 🔗 Open Anaconda

@@ -4,7 +4,7 @@ metadata:
   name: anaconda
 spec:
   title: Anaconda
-  icon: "https://www.bigdatawire.com/wp-content/uploads/2022/04/anaconda_logo-768x342.png"
+  icon: "https://www.clipartmax.com/png/small/349-3490136_anaconda-icon-anaconda-python-icon.png"
   ports:
     - serviceName: anaconda-nginx
       servicePort: 443
