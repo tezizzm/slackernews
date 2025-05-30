@@ -20,8 +20,8 @@ spec:
       clientId: repl{{ ConfigOption "slack_clientid" | quote }}
       clientSecret: repl{{ ConfigOption "slack_clientsecret" | quote }}
     slackernews:
-      domain: repl{{ ConfigOption "slackernews_domain" }}
-      adminUserEmails: repl{{ ConfigOption "slackernews_admin_user_emails" | quote }}
+      domain: repl{{ ConfigOption "anaconda_domain" }}
+      adminUserEmails: repl{{ ConfigOption "anaconda_admin_user_emails" | quote }}
     admin-console:
       enabled: false
     replicated:
@@ -105,7 +105,7 @@ spec:
               {{repl $ca := genCA (LicenseFieldValue "customerName") 365 }}
               {{repl $ca.Cert | Base64Encode}}
             cert: |-
-              {{repl $cert := genSignedCert (ConfigOption "slackernews_domain") nil (list (ConfigOption "slackernews_domain")) 365 $ca }}
+              {{repl $cert := genSignedCert (ConfigOption "anaconda_domain") nil (list (ConfigOption "anaconda_domain")) 365 $ca }}
               {{repl $cert.Cert | nindent 14 }}
             key: |-
               {{repl $cert.Key | nindent 14 }}

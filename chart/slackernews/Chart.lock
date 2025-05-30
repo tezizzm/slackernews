@@ -1,6 +1,6 @@
 dependencies:
 - name: replicated
   repository: oci://chart.slackernews.io/library
-  version: 1.0.0-beta.26
-digest: sha256:013313d681941952d14d036cc0dcb90b2f4ad703048d417751987665ea6b8c2b
-generated: "2024-08-07T09:01:27.380311-07:00"
+  version: 1.0.0-beta.32
+digest: sha256:40c581c8ac037c1710a7e063a1651e6d6d6bf076c8e62cbee1d51028b626d639
+generated: "2025-05-29T21:00:24.183975-07:00"
