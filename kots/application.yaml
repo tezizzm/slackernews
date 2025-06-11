@@ -16,12 +16,12 @@ spec:
       kind: Deployment
   descriptor:
     version: "1.0.0"
-    description: "SlackerNews"
+    description: "BMC Helix"
     icons:
-      - src: "https://uploads-ssl.webflow.com/6310ad0e6a18aa1620da6ae8/6330e04f42bc6a7ba03b4725_snicon.png"
-        type: "image/png"
-    type: slackernews
+      - src: "https://banner2.cleanpng.com/20180419/ziw/kisspng-bmc-software-remedy-corporation-it-service-managem-china-cloud-5ad8a74ec038a0.1950217715241480467873.jpg"
+        type: "image/jpeg"
+    type: bmc-helix
     links:
-      - description: 🔗 Open Slackernews
-        url: "https://slackernews"
-#      - description: Slackernews Admin
+      - description: 🔗 Open BMC Helix
+        url: "https://bmc-helix"
+#      - description: BMC Admin
