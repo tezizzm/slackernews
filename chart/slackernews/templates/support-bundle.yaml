@@ -71,16 +71,16 @@ stringData:
                   when: "true"
                   message: "Axios errors found in logs"
         - textAnalyze:
-            checkName: Slack Accessible
+            checkName: Helix Endpoint Accessible
             fileName: slack.json
             regex: '"status": 200,'
             outcomes:
               - pass:
                   when: "true"
-                  message: "Can access the Slack API"
+                  message: "Can access the Helix API"
               - fail:
                   when: "false"
-                  message: "Cannot access the Slack API. Check that the server can reach the internet and check [status.slack.com](https://status.slack.com)."
+                  message: "Cannot access the Helix API. Check that the server can reach the internet and check [status.helix.com](https://status.slack.com)."
         - nodeResources:
             checkName: One node must have 2 GB RAM and 1 CPU Cores
             filters:
@@ -94,28 +94,28 @@ stringData:
                   message: Sufficient CPU and memory is available
         - textAnalyze:
             exclude: {{ eq .Values.slack.userToken  "" }}
-            checkName: Slack User Token
+            checkName: Helix User Token
             fileName: helmValuesSlackUserToken.json
             regex: ok\\":true
             outcomes:
               - fail:
                   when: "false"
-                  message: No Valid Slack User token in helm values
+                  message: No Valid Helix User token in helm values
               - pass:
                   when: "true"
-                  message: Slack User Token valid
+                  message: Helix User Token valid
         - textAnalyze:
             exclude: {{ eq .Values.slack.botToken  "" }}
-            checkName: Slack Bot Token
+            checkName: Helix Bot Token
             fileName: helmValuesSlackBotToken.json
             regex: ok\\":true
             outcomes:
               - fail:
                   when: "false"
-                  message: No Valid Slack Bot token in helm values
+                  message: No Valid Helix Bot token in helm values
               - pass:
                   when: "true"
-                  message: Slack Bot Token valid
+                  message: Helix Bot Token valid
         - distribution:
             exclude: {{ eq .Values.replicated.isEmbeddedCluster true }}
             outcomes:
