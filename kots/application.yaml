@@ -1,14 +1,14 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: "anaconda"
+  name: "code-valet"
   labels:
-    app.kubernetes.io/name: "anaconda"
+    app.kubernetes.io/name: "code-valet"
     app.kubernetes.io/version: "0.0.1"
 spec:
   selector:
     matchLabels:
-     app.kubernetes.io/name: "anaconda"
+     app.kubernetes.io/name: "code-valet"
   componentKinds:
     - group: core
       kind: Service
@@ -16,12 +16,12 @@ spec:
       kind: Deployment
   descriptor:
     version: "1.0.0"
-    description: "Anaconda"
+    description: "Code Valet"
     icons: 
-      - src: "https://www.clipartmax.com/png/small/349-3490136_anaconda-icon-anaconda-python-icon.png"
+      - src: "https://www.codevalet.com/logo.png"
         type: "image/png"
-    type: anaconda
+    type: code-valet
     links:
-      - description: 🔗 Open Anaconda
-        url: "https://anaconda"
+      - description: 🔗 Open Code Valet
+        url: "https://codevalet.com"
 #      - description: Slackernews Admin

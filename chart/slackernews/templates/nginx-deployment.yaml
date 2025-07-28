@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: slackernews-nginx
+  name: code-valet-nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: slackernews-nginx
+      app: code-valet-nginx
   template:
     metadata:
       labels:
-        app: slackernews-nginx
+        app: code-valet-nginx
     spec:
       {{- include "slackernews.imagePullSecrets" . | nindent 6 }}
       containers:
       - image: {{ .Values.images.nginx.registry }}/{{ .Values.images.nginx.repository }}:{{ .Values.images.nginx.tag }}
-        name: slackernews-nginx
+        name: code-valet-nginx
         ports:
 {{ if .Values.service.tls.enabled }}
         - containerPort: 443
@@ -64,7 +64,7 @@ spec:
       - name: var-volume
         emptyDir: {}
       - configMap:
-          name: slackernews-nginx
+          name: code-valet-nginx
         name: config
 {{ if .Values.service.tls.existingSecretName }}
       - secret:
@@ -73,6 +73,6 @@ spec:
 {{ end }}
 {{ if .Values.service.tls.enabled }}
       - secret:
-          secretName: slackernews-nginx
+          secretName: code-valet-nginx
         name: certs
 {{ end }}

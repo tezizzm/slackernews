@@ -37,11 +37,11 @@ stringData:
         - logs:
             namespace: {{ .Release.Namespace }}
             selector:
-              - app=slackernews-nginx
+              - app=code-valet-nginx
         - logs:
             namespace: {{ .Release.Namespace }}
             selector:
-              - app=slackernews
+              - app=code-valet
         - logs:
             selector:
               - app=postgres
@@ -61,7 +61,7 @@ stringData:
                 message: Your cluster meets the recommended and quired versions of Kubernetes.
         - textAnalyze:
             checkName: Axios Errors
-            fileName: slackernews-*/slackernews.log
+            fileName: code-valet-*/code-valet.log
             regex: "error - AxiosError"
             outcomes:
               - pass:

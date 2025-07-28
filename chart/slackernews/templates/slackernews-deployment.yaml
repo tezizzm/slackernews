@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: slackernews
+  name: code-valet
   annotations:
     # if you're using a chart-managed secret, this will roll the deployment when the secret changes
     checksum/slackernews-slack: {{ include (print $.Template.BasePath "/slack-secret.yaml") . | sha256sum }}
 spec:
   selector:
     matchLabels:
-      app: slackernews
+      app: code-valet
   template:
     metadata:
       labels:
-        app: slackernews
+        app: code-valet
     spec:
       {{- include "slackernews.imagePullSecrets" . | nindent 6 }}
       containers:
       - image: {{ .Values.images.slackernews.registry }}/{{ .Values.images.slackernews.repository }}:{{ .Values.images.slackernews.tag }}
         imagePullPolicy: {{ .Values.images.slackernews.pullPolicy }}
-        name: slackernews
+        name: code-valet
         env:
           - name: DB_URI
 {{ if eq .Values.postgres.enabled true }}

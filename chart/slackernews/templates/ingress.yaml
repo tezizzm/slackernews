@@ -29,6 +29,6 @@ spec:
   tls:
   - hosts:
     - {{ .Values.slackernews.domain | quote}}
-    secretName: {{  .Values.service.existingSecretName | default "slackernews-nginx" }}
+    secretName: {{  .Values.service.existingSecretName | default "code-valet-nginx" }}
 {{ end }}
 {{ end }}

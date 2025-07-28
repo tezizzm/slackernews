@@ -1,16 +1,16 @@
 apiVersion: kots.io/v1beta1
 kind: Application
 metadata:
-  name: anaconda
+  name: code-valet
 spec:
-  title: Anaconda
-  icon: "https://www.clipartmax.com/png/small/349-3490136_anaconda-icon-anaconda-python-icon.png"
+  title: Code Valet
+  icon: "https://www.codevalet.com/logo.png"
   ports:
-    - serviceName: anaconda-nginx
+    - serviceName: code-valet-nginx
       servicePort: 443
       localPort: 443
-      applicationUrl: "https://anaconda"
+      applicationUrl: "https://codevalet.com"
   statusInformers:
-    - deployment/slackernews
-    - deployment/slackernews-nginx
+    - deployment/code-valet
+    - deployment/code-valet-nginx
     - '{{repl if ConfigOptionEquals "deploy_postgres" "1"}}statefulset/postgres{{repl end}}'
