@@ -1,14 +1,14 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: "anaconda"
+  name: "testify-security"
   labels:
-    app.kubernetes.io/name: "anaconda"
+    app.kubernetes.io/name: "testify-security"
     app.kubernetes.io/version: "0.0.1"
 spec:
   selector:
     matchLabels:
-     app.kubernetes.io/name: "anaconda"
+     app.kubernetes.io/name: "testify-security"
   componentKinds:
     - group: core
       kind: Service
@@ -16,12 +16,12 @@ spec:
       kind: Deployment
   descriptor:
     version: "1.0.0"
-    description: "Anaconda"
+    description: "Testify Security"
     icons: 
-      - src: "https://www.clipartmax.com/png/small/349-3490136_anaconda-icon-anaconda-python-icon.png"
+      - src: "https://awsmp-logos.s3.amazonaws.com/seller-vgposp36ckxz6/11149d69e385fcd0c3833646ad1985c2.png"
         type: "image/png"
-    type: anaconda
+    type: testify-security
     links:
-      - description: 🔗 Open Anaconda
-        url: "https://anaconda"
+      - description: 🔗 Open Testify Security
+        url: "https://testify-security"
 #      - description: Slackernews Admin

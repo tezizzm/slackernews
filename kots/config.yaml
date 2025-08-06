@@ -1,25 +1,25 @@
 apiVersion: kots.io/v1beta1
 kind: Config
 metadata:
-  name: anaconda-config
+  name: testify-security-config
 spec:
   groups:
-    - name: anaconda
+    - name: testify-security
       title: Application Core
       description: |
         For this section, you can specify some core parameters for how
-        Anaconda operates, including the domain where users will access it
+        Testify Security operates, including the domain where users will access it
         and the user who can administer it.
 
         Users that you specify under **Admin Users** will be able to access the
-        Anaconda adminstrative console at `/admin`, allowing them to manage
+        Testify Security adminstrative console at `/admin`, allowing them to manage
         content, users, and settings. Changes will take effect the next time
-        they are active in the Anaconda application.
+        they are active in the Testify Security application.
       items:
-        - name: anaconda_domain
+        - name: testify-security_domain
           title: Ingress Hostname
           help_text: >
-            The domain name at which you'll access Anaconda. Don't include
+            The domain name at which you'll access Testify Security. Don't include
             the `https://` or any path elements.
           type: text
           required: true
@@ -27,7 +27,7 @@ spec:
           #   regex:
           #     pattern: ^(?!-)[A-Za-z0-9-]{1,63}(?<!-)(\.(?!-)[A-Za-z0-9-]{1,63}(?<!-))*\.[A-Za-z]{2,}$
           #     message: Please enter a valid hostname
-        - name: anaconda_admin_user_emails
+        - name: testify-security_admin_user_emails
           title: Admin Users
           type: text
           help_text: >
@@ -37,14 +37,14 @@ spec:
     - name: ingress
       title: Application Access
       description: |
-        You can customize how you will expose Anaconda to the internet.
+        You can customize how you will expose Testify Security to the internet.
         Note that the domain you use will need to be publicly addressable with certs signed by a public authority
         so it can receive webhooks from Slack.
 
         Common configurations include:
 
-        - **ClusterIP** Using a Cluster IP and configuring your existing ingress controller to route traffic to Anaconda
-        - **NodePort** Using a NodePort and configuring an existing load balancer to route traffic to Anaconda
+        - **ClusterIP** Using a Cluster IP and configuring your existing ingress controller to route traffic to Testify Security
+        - **NodePort** Using a NodePort and configuring an existing load balancer to route traffic to Testify Security
         - **LoadBalancer** Using a LoadBalancer service and letting Kubernetes provision a load balancer for you
 
         If you're running in a supported cloud provider and want Kubernetes to provision a Load Balancer, use LoadBalancer.
@@ -71,7 +71,7 @@ spec:
     - name: tls
       title: Certificates
       description: |
-        You can secure the Anaconda application with certificates from a trusted certificate authority
+        You can secure the Testify Security application with certificates from a trusted certificate authority
         or we can generate them for you. We recommend that you upload your own certificates for production installations.
       items:
         - name: certificate_source
@@ -99,11 +99,11 @@ spec:
     - name: slack
       title: Slack Settings
       description: |
-        If desired, you can preconfigure the slack settings for Anaconda.
-        These are required for logging into Anaconda and pulling/organizing content from your slack instance.
-        If you don't preconfigure these settings, you'll be prompted to configure them when you first access Anaconda.
+        If desired, you can preconfigure the slack settings for Testify Security.
+        These are required for logging into Testify Security and pulling/organizing content from your slack instance.
+        If you don't preconfigure these settings, you'll be prompted to configure them when you first access Testify Security.
 
-        Instructions on how to configure your slack application and collect these values can be found in [the Anaconda slack documentation](https://docs.anaconda.io/slack/).
+        Instructions on how to configure your slack application and collect these values can be found in [the Testify Security slack documentation](https://docs.testify-security.io/slack/).
       items:
         - name: slack_clientid
           title: Slack Client ID
@@ -117,20 +117,20 @@ spec:
           validation:
             regex:
               pattern: ^xoxp-.*$
-              message: Please enter the Slack user token for your instance of Anaconda
+              message: Please enter the Slack user token for your instance of Testify Security
         - name: slack_bot_token
           title: Bot User OAuth Token
           type: password
           validation:
             regex:
               pattern: ^xoxb-.*$
-              message: Please enter the Slack bot token for your instance of Anaconda
+              message: Please enter the Slack bot token for your instance of Testify Security
 
     - name: postgres
       description: >
-        This section can be used to configure the postgresql database required by Anaconda. You
+        This section can be used to configure the postgresql database required by Testify Security. You
         can either deploy postgresql as part of the installation or provide an external URI to an existing postgresql instance
-        that you will use for Anaconda.
+        that you will use for Testify Security.
       title: Postgresql
       items:
         - name: deploy_postgres

@@ -1,15 +1,15 @@
 apiVersion: kots.io/v1beta1
 kind: Application
 metadata:
-  name: anaconda
+  name: testify-security
 spec:
-  title: Anaconda
-  icon: "https://www.clipartmax.com/png/small/349-3490136_anaconda-icon-anaconda-python-icon.png"
+  title: Testify Security
+  icon: "https://media.licdn.com/dms/image/v2/C4D0BAQFjs2pimiNYuw/company-logo_200_200/company-logo_200_200/0/1633505932121/testifysec_logo?e=1757548800&v=beta&t=k_xfSO0AhiT5UkmnYT9fflYjAuMhxIVqSeh8v72RaAc"
   ports:
-    - serviceName: anaconda-nginx
+    - serviceName: testify-security-nginx
       servicePort: 443
       localPort: 443
-      applicationUrl: "https://anaconda"
+      applicationUrl: "https://testify-security"
   statusInformers:
     - deployment/slackernews
     - deployment/slackernews-nginx
