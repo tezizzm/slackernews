@@ -1,25 +1,25 @@
 apiVersion: kots.io/v1beta1
 kind: Config
 metadata:
-  name: slackernews-config
+  name: app-scan-360-config
 spec:
   groups:
-    - name: slackernews
+    - name: app-scan-360
       title: Application Core
       description: |
         For this section, you can specify some core parameters for how
-        Slackernews operates, including the domain where users will access it
+        App Scan 360 operates, including the domain where users will access it
         and the user who can administer it.
 
         Users that you specify under **Admin Users** will be able to access the
-        Slackernews adminstrative console at `/admin`, allowing them to manage
+        App Scan 360 adminstrative console at `/admin`, allowing them to manage
         content, users, and settings. Changes will take effect the next time
-        they are active in the Slackernews application.
+        they are active in the App Scan 360 application.
       items:
         - name: slackernews_domain
           title: Ingress Hostname
           help_text: >
-            The domain name at which you'll access SlackerNews. Don't include
+            The domain name at which you'll access App Scan 360. Don't include
             the `https://` or any path elements.
           type: text
           required: true
@@ -37,7 +37,7 @@ spec:
     - name: ingress
       title: Application Access
       description: |
-        You can customize how you will expose SlackerNews to the internet.
+        You can customize how you will expose App Scan 360 to the internet.
         Note that the domain you use will need to be publicly addressable with certs signed by a public authority
         so it can receive webhooks from Slack.
 
@@ -97,40 +97,40 @@ spec:
           when: '{{repl ConfigOptionEquals "certificate_source" "upload_existing"}}'
 
     - name: slack
-      title: Slack Settings
+      title: App Scan 360 Settings
       description: |
-        If desired, you can preconfigure the slack settings for SlackerNews.
-        These are required for logging into SlackerNews and pulling/organizing content from your slack instance.
-        If you don't preconfigure these settings, you'll be prompted to configure them when you first access SlackerNews.
+        If desired, you can preconfigure the slack settings for App Scan 360.
+        These are required for logging into App Scan 360 and pulling/organizing content from your slack instance.
+        If you don't preconfigure these settings, you'll be prompted to configure them when you first access App Scan 360.
 
-        Instructions on how to configure your slack application and collect these values can be found in [the SlackerNews slack documentation](https://docs.slackernews.io/slack/).
+        Instructions on how to configure your slack application and collect these values can be found in [the App Scan 360 slack documentation](https://docs.slackernews.io/slack/).
       items:
         - name: slack_clientid
-          title: Slack Client ID
+          title: App Scan 360 Client ID
           type: text
         - name: slack_clientsecret
-          title: Slack Client Secret
+          title: App Scan 360 Client Secret
           type: password
         - name: slack_user_token
-          title: User OAuth Token
+          title: App Scan 360 User OAuth Token
           type: password
           validation:
             regex:
               pattern: ^xoxp-.*$
               message: Please enter the Slack user token for your instance of Slackernews
         - name: slack_bot_token
-          title: Bot User OAuth Token
+          title: App Scan 360 Bot User OAuth Token
           type: password
           validation:
             regex:
               pattern: ^xoxb-.*$
-              message: Please enter the Slack bot token for your instance of Slackernews
+              message: Please enter the Slack bot token for your instance of App Scan 360
 
     - name: postgres
       description: >
-        This section can be used to configure the postgresql database required by SlackerNews. You
+        This section can be used to configure the postgresql database required by App Scan 360. You
         can either deploy postgresql as part of the installation or provide an external URI to an existing postgresql instance
-        that you will use for SlackerNews.
+        that you will use for App Scan 360.
       title: Postgresql
       items:
         - name: deploy_postgres
