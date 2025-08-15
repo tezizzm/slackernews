@@ -1,14 +1,14 @@
 apiVersion: app.k8s.io/v1beta1
 kind: Application
 metadata:
-  name: "slackernews"
+  name: "App Scan 360"
   labels:
-    app.kubernetes.io/name: "slackernews"
+    app.kubernetes.io/name: "app-scan-360"
     app.kubernetes.io/version: "0.0.1"
 spec:
   selector:
     matchLabels:
-     app.kubernetes.io/name: "slackernews"
+     app.kubernetes.io/name: "app-scan-360"
   componentKinds:
     - group: core
       kind: Service
@@ -16,12 +16,12 @@ spec:
       kind: Deployment
   descriptor:
     version: "1.0.0"
-    description: "SlackerNews"
+    description: "App Scan 360"
     icons:
-      - src: "https://uploads-ssl.webflow.com/6310ad0e6a18aa1620da6ae8/6330e04f42bc6a7ba03b4725_snicon.png"
+      - src: "https://cdn-public.softwarereviews.com/production/logos/offerings/3549/large/HCL_Software_logo.png"
         type: "image/png"
-    type: slackernews
+    type: app-scan-360
     links:
-      - description: 🔗 Open Slackernews
-        url: "https://slackernews"
+      - description: 🔗 Open App Scan 360
+        url: "https://app-scan-360.hclsoftware.com"
 #      - description: Slackernews Admin
